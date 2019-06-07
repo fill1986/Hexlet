@@ -1,10 +1,14 @@
 const solution=(str)=>{
     let strLength=str.length-1;
-    for(let i=0;i<=strLength;i++){
-        if(i==0){str[i]=str[i].toUpperCase;}
-        if(str[i]==" "){str[i+1]=str[i+1].toUpperCase;}
-    }
-    return str;
+    let modifedStr="";
+
+   for(let i=0;i<=strLength;i++){
+      if(i==0){modifedStr+=str[i].toUpperCase(); continue;}
+      if(str[i-1]==" "){modifedStr+=str[i].toUpperCase(); continue;}
+      modifedStr+=str[i];
+     }
+  return modifedStr;
 };
 
-console.log(solution('hello, world!'));
+let test=solution('hello, world!');
+console.log(test);
