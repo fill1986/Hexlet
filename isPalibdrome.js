@@ -1,24 +1,21 @@
 
 const isPalindrome=(str)=>{
-    if(str.length==1){return true;}
-let i=0;
-let j=str.length-1;
+    if (str.length<=1){return true;}
 
+    let firstSymbol=str[0];
+    let lastSymbol=str[str.length-1];
 
-const recur=(i,j)=>{
-    if(i==j){return true;}
-    if(str[i]!==str[j]){return false;}
-    i++;
-    j--;
-    return recur(i,j);
-};
+    if(firstSymbol!==lastSymbol){console.log(firstSymbol+" "+lastSymbol);return false;}
 
-return recur(i,j);
+    let newStrWitoutFirstLast=str.substring(1,lastSymbol-1);
+
+    return isPalindrome(newStrWitoutFirstLast);
+
 
 };
 
 
-
-console.log(isPalindrome('raradarar')); // => true
+console.log(isPalindrome('radar')); // => true
 console.log(isPalindrome('a'));     // => true
 console.log(isPalindrome('abs'));   // => false
+console.log(isPalindrome('aa'));   // => false
