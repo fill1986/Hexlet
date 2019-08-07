@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+'use strict'
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{margin: 20px}
+    img{margin: 20px}
+    </style>
+    <script>
+     window.onload=init;
+     function init(){
+         console.log('Page loaded');
+        //let image=document.getElementById('zero');
+       // console.log(image);
+        let image=document.getElementsByTagName('img');
+        for(let i=0;i<image.length;i++){
+         //   image[i].onclick=showAnswer;
+              image[i].onmouseover=showAnswer;
+              image[i].onmouseout=reBlur;
+            }
+
+        
+     }
+
+     function showAnswer(eventObj){
+         let image=eventObj.target;
+         let name=image.id+'.jpg';
+         image.src=name;
+    
+        setTimeout(reBlur,2000,image)
+     }
+
+     function reBlur(eventObj){
+        image=eventObj.target;
+        let name=image.id+'blur.jpg';
+        image.src=`img/${name}`;
+     }
+
+    </script>
+</head>
+<body>
+    <div>
+        <img src="img/zeroblur.jpg" id='zero'>
+        <img src="img/oneblur.jpg" id='one'>
+        <img src="img/twoblur.jpg" id='two'>
+        <img src="img/threeblur.jpg" id='three'>
+        <img src="img/fourblur.jpg" id='four'>
+        <img src="img/fiveblur.jpg" id='five'>
+    </div>
+</body>
+</html>
